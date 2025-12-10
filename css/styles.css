@@ -7,6 +7,7 @@ body{
     box-sizing: border-box;
 }
 
+/* Estilos de la portada */
 #portada{
     width: 100vw;
     height: 100vh;
@@ -24,4 +25,17 @@ body{
     padding-top: 5vh;
     width: 20vw;
     height: auto;
+}
+
+#portada .line{
+    width: 10vw;
+    height: 0.5vh;
+    background-color: #000000;
+    margin: 2vh auto;
+}
+#portada p{
+    text-align: center;
+    font-size: 1.5vw;
+    margin: 0;
+    padding: 0;
 }
