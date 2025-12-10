@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Configuración del navegador -->
+    <meta name="robots" content="index,follow">
+    <meta name="theme-color" content="#5C0120">
+
+    <!-- OPEN GRAPH -->
+    <meta property="og:title" content="M&J Consultoría">
+    <meta property="og:description" content="Trabajamos para solventar tus necesidades fiscales y contables.">
+    <meta property="og:image" content="MJ_Consultoría(vector).svg">
+    <meta property="og:image:alt" content="Esta es una imagen del logo de M&J Consultoría">
+
+    <!-- Icono del navegador -->
+    <link rel="icon" href="images/icon.png" type="image/png">
+
+    <title>M&J Consultoría</title>
+</head>
+<body>
+
+    <!-- Portada -->
+    <header id="portada">
+        <img src="images/MJ_Consultoría(vector).svg" alt="Logo de M&J Consultoría">
+        <div class="line"></div>
+        <p>Tu cumplimiento fiscal, nuestra responsabilidad</p>
+        <button id="verMas">Ver más</button>
+    </header>
+
+    <!-- Barra de navegación lateral -->
+    <aside>
+        <nav>
+            <ul>
+                <li><a href="#inicio" data-target="inicio">Inicio</a></li>
+                <li><a href="#nosotros" data-target="nosotros">Nosotros</a></li>
+                <li><a href="#servicios" data-target="servicios">Servicios</a></li>
+                <li><a href="#contacto" data-target="contacto">Contáctanos</a></li>
+                <li><a href="#crearCuenta" data-target="crearCuenta">Crear Cuenta</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Página principal -->
+    <main id="inicio">
+
+        <section>
+            <h2>¿Quiénes somos?</h2>
+            <p>
+                <strong>M&J Consultoría</strong> es una <strong>firma</strong> especializada
+                en outsourcing contable, asesoría tributaria y fiscal, ejecución de presupuestos,
+                dictamen en auditorías externas e implementación de controles internos.
+                <br><br>
+                Nuestro equipo está compuesto por especialistas en contabilidad,
+                fiscalidad, finanzas, derecho y sistemas; lo que nos permite ofrecer
+                un enfoque integral y personalizado a cada uno de nuestros clientes.
+                <br><br>
+                Así garantizamos soluciones efectivas y adaptadas a sus necesidades, siempre
+                completamente fundamentadas y alineadas con las normativas vigentes, acompañados
+                por herramientas tecnológicas que mejoran con precisión y eficiencia nuestros
+                servicios.
+                <br><br>
+                Nuestro compromiso es ofrecer claridad, seguridad y resultados confiables
+                en cada decisión financiera que tomen nuestros clientes.
+            </p>
+        </section>
+
+        <section>
+            <h2>Misión</h2>
+            <p>
+                Apoyamos a nuestros clientes con soluciones contables, fiscales y financieras
+                claras y confiables. Simplificamos lo complejo, optimizamos recursos y ofrecemos
+                una visión estratégica que impulse el crecimiento sostenible. Trabajamos con ética,
+                rigor y un enfoque humano, integrando tecnología y conocimiento profesional para
+                brindar asesoría precisa y oportuna.
+            </p>
+        </section>
+
+        <section>
+            <h2>Visión</h2>
+            <p>
+                Ser la firma contable más confiable y actualizada, reconocida por adaptarnos a los
+                cambios normativos y tecnológicos. Unir criterio profesional y enfoque humano para
+                ofrecer soluciones reales y efectivas. Aspiramos a ser referentes en innovación,
+                ética y excelencia, impulsando negocios sólidos, transparentes y sostenibles.
+            </p>
+        </section>
+
+        <section>
+            <h2>¿Por qué contratarnos?</h2>
+            <p>
+                Contamos con un equipo de profesionales altamente capacitados y
+                con amplia experiencia en el campo de la contabilidad y fiscalidad.
+                Nos mantenemos actualizados con las últimas normativas y mejores prácticas del sector
+                para ofrecer soluciones innovadoras y efectivas a nuestros clientes.
+            </p>
+        </section>
+
+            <!-- Nosotros -->
+        <section id="nosotros">
+            <h2>Conoce a nuestro equipo</h2>
+            <ul>
+                <li>
+                    Maybel Valladares
+                    <div class="line"></div>
+                    <img src="" alt="Foto de la CEO">
+                </li>
+                <li>
+                    Jony Jiménez
+                    <div class="line"></div>
+                    <img src="" alt="Foto del CEO">
+                </li>
+            </ul>
+        </section>
+
+        <!-- Servicios -->
+        <section id="servicios">
+            <h2>Nuestros servicios</h2>
+            <ul>
+                <li>
+                    Contabilidad
+                    <ul>
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                    </ul>
+                </li>
+
+                <li>
+                    Asesoría fiscal
+                    <ul>
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                    </ul>
+                </li>
+
+                <li>
+                    Auditoría con orientación tributaria
+                    <ul>
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                    </ul>
+                </li>
+
+                <li>
+                    Gestión de expedientes tributarios
+                    <ul>
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>
+            Contáctanos hoy mismo para darte la mejor orientación
+            fiscal y contable; basada en la normativa vigente.
+        </p>
+        <p>
+            &copy; <span id="year"></span> M.J. Consultoría. Todos los derechos reservados.
+        </p>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+
+</body>
+</html>
