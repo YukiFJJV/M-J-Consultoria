@@ -9,10 +9,11 @@ body{
 
 /* Estilos de la portada */
 #portada{
+    position: relative;
     width: 100vw;
     height: 100vh;
     background-image:
-    linear-gradient(to top, white 0% rgba(255, 255, 255, 0) 35%)
+    linear-gradient(to top, white 0%, rgba(255, 255, 255, 0) 35%)
     url('images/Portada.jpg');
     background-size: cover;
     background-position: center;
@@ -20,7 +21,7 @@ body{
 }
 
 #portada img{
-    display: grid;
+    position: absolute;
     margin: 0 auto;
     padding-top: 5vh;
     width: 20vw;
