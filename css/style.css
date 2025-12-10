@@ -1,0 +1,27 @@
+body{
+    font-family: 'Inter', sans-serif;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#portada{
+    width: 100vw;
+    height: 100vh;
+    background-image:
+    linear-gradient(to top, white 0% rgba(255, 255, 255, 0) 35%)
+    url('images/Portada.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#portada img{
+    display: grid;
+    margin: 0 auto;
+    padding-top: 5vh;
+    width: 20vw;
+    height: auto;
+}
