@@ -51,204 +51,217 @@
         alt="Logo de M&J Consultoría">
         <div class="line"></div>
         <p><strong>Tu cumplimiento fiscal, nuestra responsabilidad</strong></p>
-        <button id="verMas">Ver más</button>
     </header>
 
-    <!-- Barra de navegación lateral -->
-    <aside>
-        <nav>
-            <ul>
-                <li><a href="#inicio" data-target="inicio">Inicio</a></li>
-                <li><a href="#nosotros" data-target="nosotros">Nosotros</a></li>
-                <li><a href="#servicios" data-target="servicios">Servicios</a></li>
-                <li><a href="#contacto" data-target="contacto">Contáctanos</a></li>
+    <!-- Layout -->
+    <div id="layout">
+        <header>
+            <img src="https://site.mjconsulta.com/images/MJ_Consultoria(vector).svg"
+            alt="Logo de M&J Consultoría"
+            width="200"
+            height=auto>
+        </header>
+        <!-- Barra de navegación lateral -->
+        <aside>
+            <nav>
+                <ul>
+                    <li><a href="#inicio" data-target="inicio">Inicio</a></li>
+                    <li><a href="#nosotros" data-target="nosotros">Nosotros</a></li>
+                    <li><a href="#servicios" data-target="servicios">Servicios</a></li>
+                    <li><a href="#contacto" data-target="contacto">Contáctanos</a></li>
 
-                <li id="user-section">
-                    <!-- Cuando no hay un perfil creado -->
-                    <div id="no-user" style="display: none;">
-                        <a href="crearCuenta.html">Crear Cuenta</a>
-                    </div>
-                    <!-- Cuando hay un perfil creado -->
-                    <a id="user-profile" href="perfil.html" style="display: none;">
-                        <div class="user-container">
-                            <img src="" alt="Foto de perfil" id="user-avatar">
-                            <div class="user-info">
-                                <span id="user-name"></span>
-                                <small id="user-mail"></small>
-                                <small id="user-company"></small>
-                            </div>
+                    <li id="user-section">
+                        <!-- Cuando no hay un perfil creado -->
+                        <div id="no-user" style="display: none;">
+                            <a href="crearCuenta.html">Crear Cuenta</a>
                         </div>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    </aside>
+                        <!-- Cuando hay un perfil creado -->
+                        <a id="user-profile" href="perfil.html" style="display: none;">
+                            <div class="user-container">
+                                <img src="" alt="Foto de perfil" id="user-avatar">
+                                <div class="user-info">
+                                    <span id="user-name"></span>
+                                    <small id="user-mail"></small>
+                                    <small id="user-company"></small>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
 
-    <!-- Sección de contacto -->
-    <div id="contacto">
-        <a href="https://www.instagram.com/m.j_consultoria"
-        target="_blank"
-        rel="noopener noreferrer"
-        >
-            <img src="images/Instagram_Glyph_White.png" alt="Logo de Instagram" width="40" height="40">
-            <img src="images/Instagram_Glyph_Black.png" alt="Logo de Instagram" width="40" height="40">
-        </a>
-
-        <a href="https://www.facebook.com/profile.php?id=61584565726280"
-        target="_blank"
-        rel="noopener noreferrer"
-        >
-            <img src="images/Facebook_White.png" alt="Logo de Facebook" width="40" height="40">
-            <img src="images/Facebook_Black.png" alt="Logo de Facebook" width="40" height="40">
-        </a>
-
-        <a href="https://x.com/mj__consultoria"
-        target="_blank"
-        rel="noopener noreferrer">
-            <img src="images/X_white.png" alt="Logo de X" width="40" height="40">
-            <img src="images/X_black.png" alt="Logo de X" width="40" height="40">
-        </a>
-    </div>
-
-    <!-- Página principal -->
-    <main id="inicio" class="page-section">
-
-        <section>
-            <h2>¿Quiénes somos?</h2>
-            <p>
-                <strong>M&J Consultoría</strong> es una <strong>firma</strong> especializada
-                en outsourcing contable, asesoría tributaria y fiscal, ejecución de presupuestos,
-                dictamen en auditorías externas e implementación de controles internos.
-                <br><br>
-                Nuestro equipo está compuesto por especialistas en contabilidad,
-                fiscalidad, finanzas, derecho y sistemas; lo que nos permite ofrecer
-                un enfoque integral y personalizado a cada uno de nuestros clientes.
-                <br><br>
-                Así garantizamos soluciones efectivas y adaptadas a sus necesidades, siempre
-                completamente fundamentadas y alineadas con las normativas vigentes, acompañados
-                por herramientas tecnológicas que mejoran con precisión y eficiencia nuestros
-                servicios.
-                <br><br>
-                Nuestro compromiso es ofrecer claridad, seguridad y resultados confiables
-                en cada decisión financiera que tomen nuestros clientes.
-            </p>
-        </section>
-
-        <section>
-            <h2>Misión</h2>
-            <p>
-                Apoyamos a nuestros clientes con soluciones contables, fiscales y financieras
-                claras y confiables. Simplificamos lo complejo, optimizamos recursos y ofrecemos
-                una visión estratégica que impulse el crecimiento sostenible. Trabajamos con ética,
-                rigor y un enfoque humano, integrando tecnología y conocimiento profesional para
-                brindar asesoría precisa y oportuna.
-            </p>
-        </section>
-
-        <section>
-            <h2>Visión</h2>
-            <p>
-                Ser la firma contable más confiable y actualizada, reconocida por adaptarnos a los
-                cambios normativos y tecnológicos. Unir criterio profesional y enfoque humano para
-                ofrecer soluciones reales y efectivas. Aspiramos a ser referentes en innovación,
-                ética y excelencia, impulsando negocios sólidos, transparentes y sostenibles.
-            </p>
-        </section>
-
-        <section>
-            <h2>¿Por qué contratarnos?</h2>
-            <p>
-                Contamos con un equipo de profesionales altamente capacitados y
-                con amplia experiencia en el campo de la contabilidad y fiscalidad.
-                Nos mantenemos actualizados con las últimas normativas y mejores prácticas del sector
-                para ofrecer soluciones innovadoras y efectivas a nuestros clientes.
-            </p>
-        </section>
-
-            <!-- Nosotros -->
-        <section id="nosotros" class="page-section">
-            <h2>Conoce a nuestro equipo</h2>
-            <ul>
-                <li>
-                    Maybel Valladares
-                    <div class="line"></div>
-                    <img src="" alt="Foto de la CEO">
-                </li>
-                <li>
-                    Jony Jiménez
-                    <div class="line"></div>
-                    <img src="" alt="Foto del CEO">
-                </li>
-            </ul>
-        </section>
-
-        <!-- Servicios -->
-        <section id="servicios" class="page-section">
-            <h2>Nuestros servicios</h2>
-            <ul>
-                <li>
-                <h3>Trámite y asesoría fiscal</h3>
-                    <ul>
-                        <li>Trámite de RTN</li>
-                        <li>Presentación y pago de declaraciones</li>
-                        <li>Trámites de facturación</li>
-                        <li></li>
-                    </ul>
-                </li>
-
-                <li>
-                    <h3>Contabilidad</h3>
-                    <ul>
-                        <li>4</li>
-                        <li>5</li>
-                        <li>6</li>
-                    </ul>
-                </li>
-
-                <li>
-                    <h3>Auditoría con orientación tributaria</h3>
-                    <ul>
-                        <li>1</li>
-                        <li>2</li>
-                        <li>3</li>
-                    </ul>
-                </li>
-
-                <li>
-                    <h3>Gestión de expedientes tributarios</h3>
-                    <ul>
-                        <li>1</li>
-                        <li>2</li>
-                        <li>3</li>
-                    </ul>
-                </li>
-            </ul>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer>
-        <p>
-            Contáctanos hoy mismo para darte la mejor orientación
-            fiscal y contable; basada en la normativa vigente.
-        </p>
-        <p>
-            &copy; <span id="year"></span> M.J. Consultoría. Todos los derechos reservados.
-        </p>
-        <p>
-            Imagen de fondo por
-            <a href="https://www.freepik.com/free-photo/modern-office-interior-with-wooden-desk-computer-laptop_5382020.htm#query=office%20desk&position=1&from_view=search&track=sph"
+        <!-- Sección de contacto -->
+        <div id="contacto">
+            <a href="https://www.instagram.com/m.j_consultoria"
             target="_blank"
             rel="noopener noreferrer"
             >
-            Freepik
+                <img src="images/Instagram_Glyph_White.png" alt="Logo de Instagram" width="40" height="40">
+                <img src="images/Instagram_Glyph_Black.png" alt="Logo de Instagram" width="40" height="40">
             </a>
-        </p>
-    </footer>
 
-    <script>
-        document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
+            <a href="https://www.facebook.com/profile.php?id=61584565726280"
+            target="_blank"
+            rel="noopener noreferrer"
+            >
+                <img src="images/Facebook_White.png" alt="Logo de Facebook" width="40" height="40">
+                <img src="images/Facebook_Black.png" alt="Logo de Facebook" width="40" height="40">
+            </a>
+
+            <a href="https://x.com/mj__consultoria"
+            target="_blank"
+            rel="noopener noreferrer">
+                <img src="images/X_white.png" alt="Logo de X" width="40" height="40">
+                <img src="images/X_black.png" alt="Logo de X" width="40" height="40">
+            </a>
+
+        </div>
+        <!-- Página principal -->
+        <main id="inicio" class="page-section">
+
+            <section>
+                <h2>¿Quiénes somos?</h2>
+                <p>
+                    <strong>M&J Consultoría</strong> es una <strong>firma</strong> especializada
+                    en outsourcing contable, asesoría tributaria y fiscal, ejecución de presupuestos,
+                    dictamen en auditorías externas e implementación de controles internos.
+                    <br><br>
+                    Nuestro equipo está compuesto por especialistas en contabilidad,
+                    fiscalidad, finanzas, derecho y sistemas; lo que nos permite ofrecer
+                    un enfoque integral y personalizado a cada uno de nuestros clientes.
+                    <br><br>
+                    Así garantizamos soluciones efectivas y adaptadas a sus necesidades, siempre
+                    completamente fundamentadas y alineadas con las normativas vigentes, acompañados
+                    por herramientas tecnológicas que mejoran con precisión y eficiencia nuestros
+                    servicios.
+                    <br><br>
+                    Nuestro compromiso es ofrecer claridad, seguridad y resultados confiables
+                    en cada decisión financiera que tomen nuestros clientes.
+                </p>
+            </section>
+
+            <section>
+                <h2>Misión</h2>
+                <p>
+                    Apoyamos a nuestros clientes con soluciones contables, fiscales y financieras
+                    claras y confiables. Simplificamos lo complejo, optimizamos recursos y ofrecemos
+                    una visión estratégica que impulse el crecimiento sostenible. Trabajamos con ética,
+                    rigor y un enfoque humano, integrando tecnología y conocimiento profesional para
+                    brindar asesoría precisa y oportuna.
+                </p>
+            </section>
+
+            <section>
+                <h2>Visión</h2>
+                <p>
+                    Ser la firma contable más confiable y actualizada, reconocida por adaptarnos a los
+                    cambios normativos y tecnológicos. Unir criterio profesional y enfoque humano para
+                    ofrecer soluciones reales y efectivas. Aspiramos a ser referentes en innovación,
+                    ética y excelencia, impulsando negocios sólidos, transparentes y sostenibles.
+                </p>
+            </section>
+
+            <section>
+                <h2>¿Por qué contratarnos?</h2>
+                <p>
+                    Contamos con un equipo de profesionales altamente capacitados y
+                    con amplia experiencia en el campo de la contabilidad y fiscalidad.
+                    Nos mantenemos actualizados con las últimas normativas y mejores prácticas del sector
+                    para ofrecer soluciones innovadoras y efectivas a nuestros clientes.
+                </p>
+            </section>
+
+                <!-- Nosotros -->
+            <section id="nosotros" class="page-section">
+                <h2>Conoce a nuestro equipo</h2>
+                <ul>
+                    <li>
+                        Maybel Valladares
+                        <div class="line"></div>
+                        <img src="" alt="Foto de la CEO">
+                    </li>
+                    <li>
+                        Jony Jiménez
+                        <div class="line"></div>
+                        <img src="" alt="Foto del CEO">
+                    </li>
+                </ul>
+            </section>
+
+            <!-- Servicios -->
+            <section id="servicios" class="page-section">
+                <h2>Nuestros servicios</h2>
+                <ul>
+                    <li>
+                    <h3>Trámite y asesoría fiscal</h3>
+                        <ul>
+                            <li>Trámite de RTN</li>
+                            <li>Presentación y pago de declaraciones</li>
+                            <li>Trámites de facturación</li>
+                            <li></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <h3>Contabilidad</h3>
+                        <ul>
+                            <li>4</li>
+                            <li>5</li>
+                            <li>6</li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <h3>Auditoría con orientación tributaria</h3>
+                        <ul>
+                            <li>1</li>
+                            <li>2</li>
+                            <li>3</li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <h3>Gestión de expedientes tributarios</h3>
+                        <ul>
+                            <li>1</li>
+                            <li>2</li>
+                            <li>3</li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <p>
+                Contáctanos hoy mismo para darte la mejor orientación
+                fiscal y contable; basada en la normativa vigente.
+            </p>
+            <p>
+                &copy; <span id="year"></span> M.J. Consultoría. Todos los derechos reservados.
+            </p>
+            <p>
+                Imagen de fondo por
+                <a href="https://www.freepik.com/free-photo/modern-office-interior-with-wooden-desk-computer-laptop_5382020.htm#query=office%20desk&position=1&from_view=search&track=sph"
+                target="_blank"
+                rel="noopener noreferrer"
+                >
+                Freepik
+                </a>
+            </p>
+        </footer>
+
+        <script>
+            document.getElementById('year').textContent = new Date().getFullYear();
+        </script>
+
+        <button class="toggle-bubble" id="toggleBubble" aria-controls="sidebar" aria-expanded="false" title="Abrir menú">
+            <!-- puedes usar una flecha SVG -->
+            <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M9 6l6 6-6 6"/></svg>
+        </button>
+    </div>
 
 </body>
 </html>

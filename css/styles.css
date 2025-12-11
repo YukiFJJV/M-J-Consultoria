@@ -24,8 +24,7 @@ body{
     rgba(255,255,255,0.7) 10%,
     rgba(255,255,255,0.4) 30%,
     rgba(255,255,255,0) 100%
-    )
-    ,
+    ),
         url('../images/Portada-mjconsultoria.jpg');
     background-size: cover;
     background-position: center;
@@ -52,10 +51,40 @@ body{
     color: #4A4B40;
 }
 
-#portada button {
-    margin-top: 2vh;
-    padding: 0.8em 2em;
-    font-size: 1vw;
-    cursor: pointer;
+#layout{
+    display: grid;
+    grid-template-areas:
+    "sidebar header header"
+    "content content content"
+    "footer footer footer";
+
+    gap: 10px;
+    grid-template-columns: auto 1fr 1fr;
+    grid-template-rows: auto;
+    min-height: 100vh;
+    position:relative;
+}
+
+#layout header{
+    grid-area: header;
+    background-color: #ffffff;
+
+    display: grid;                     /* <— aquí */
+    grid-template-columns: 1fr auto;   /* contenido / imagen */
+    align-items: center;
+    padding: 1rem;
+}
+
+#layout header img{
+    width: 180px;
+    height: auto;
+
+    justify-self: end;
+    margin-right: 20px;
+}
+
+#layout aside{
+    grid-area: sidebar;
+    background-color: #d3d4b9;
 }
 
