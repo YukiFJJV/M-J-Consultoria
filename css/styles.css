@@ -12,31 +12,42 @@ body{
     position: relative;
     width: 100vw;
     height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
     background-image:
-    linear-gradient(to top, white 0%, rgba(255, 255, 255, 0) 35%)
-    url('images/Portada.jpg');
+        linear-gradient(to top, rgb(218, 218, 218, 3) 0%, rgba(228, 228, 228, 0) 100%),
+        url('../images/Portada-mjconsultoria.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    text-align: center;
 }
 
 #portada img{
-    position: absolute;
-    margin: 0 auto;
-    padding-top: 5vh;
-    width: 20vw;
+    width: 50vw;
     height: auto;
+    margin-bottom: 1vh;
 }
 
 #portada .line{
-    width: 10vw;
+    width: 60vw;
     height: 0.5vh;
-    background-color: #000000;
-    margin: 2vh auto;
+    background-color: rgba(125, 28, 61, 30);
+    margin: 0.5vh 0;
 }
 #portada p{
-    text-align: center;
-    font-size: 1.5vw;
-    margin: 0;
-    padding: 0;
+    font-size: 1em;
+    margin: 1vh 0;
+    color: #000000
 }
+
+#portada button {
+    margin-top: 2vh;
+    padding: 0.8em 2em;
+    font-size: 1vw;
+    cursor: pointer;
+}
+
