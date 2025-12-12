@@ -102,6 +102,7 @@ body{
     width: 170px;
     height: auto;
 }
+
 #layout header img:nth-child(n+2){
     width: 20px;
     height: auto;
@@ -111,64 +112,22 @@ body{
 }
 
 /* Estilos del aside */
-/* botón flotante (pequeño, apenas visible) */
-#toggleBubble {
-    position: fixed;
-    left: -50px;
-    top: 50%;
-    transform: translateY(-50%);
-
-    width: 36px;
-    height: 36px;
-    border-radius: 999px;
-    background: rgba(92,1,32,0.18); /* semitransparente */
-    border: 1px solid rgba(92,1,32,0.25);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 6px 14px rgba(0,0,0,0.08);
-
-    transition: left 0.3s ease, opacity 0.3s ease, transform 150ms ease, background 150ms ease;
-
-    z-index: 120; /* encima del header */
-    opacity: 0;
-    cursor: pointer;
-
-    z-index: 200;
-
-    pointer-events: none;
-}
-
-#toggleBubble.visible {
-    left: 10px;
-    opacity: 1;
-    pointer-events: auto;
-}
-
-/* leve crecimiento cuando el puntero pasa por encima */
-#toggleBubble:hover {
-    transform: translateY(-50%) scale(1.06);
-    background: rgba(92,1,32,0.25);
-}
-
-#toggleBubble:hover svg path{
-    fill: white
-}
 
 /* sidebar oculto por la izquierda */
 #layout aside {
     --sidebar-width: 260px; /* ancho del sidebar */
     position: fixed;
     left: 0;
-    top: var(--header-height);
+    top: var(--header-height); /* justo debajo del header */
     width: var(--sidebar-width);
-    height: calc(100vh - var(--header-height));
-    transform: translateX(-100%); /* fuera de pantalla */
+    height: calc(100vh - var(--header-height)); /* ocupa lo que queda debajo del header */
+    transform: translateX(-100%); /* fuera de pantalla a la izquierda */
     transition: transform 300ms cubic-bezier(.2,.9,.2,1);
     z-index: 110;
     overflow: auto;
-    box-shadow: 2px 0 12px rgba(0,0,0,0.08);
+    box-shadow: 2px 0 12px -2px rgba(0,0,0,0.12);
     background: #ffffff;
+    margin-top: 15px;
 }
 
 /* estado abierto (clase que JS añade al body) */
