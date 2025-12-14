@@ -115,47 +115,49 @@ body{
 
 /* sidebar oculto por la izquierda */
 #layout aside {
-    --sidebar-width: 260px; /* ancho del sidebar */
     position: fixed;
     left: 0;
-    top: var(--header-height); /* justo debajo del header */
-    width: var(--sidebar-width);
-    height: calc(100vh - var(--header-height)); /* ocupa lo que queda debajo del header */
-    transform: translateX(-100%); /* fuera de pantalla a la izquierda */
-    transition: transform 300ms cubic-bezier(.2,.9,.2,1);
-    z-index: 110;
-    overflow: auto;
-    box-shadow: 2px 0 12px -2px rgba(0,0,0,0.12);
+    top: var(--header-height);
+    width: 50px; /* ancho mínimo solo para los íconos */
+    height: calc(100vh - var(--header-height));
     background: #ffffff;
-    margin-top: 15px;
+    box-shadow: 2px 0 12px -2px rgba(0,0,0,0.12);
+    transition: width 0.3s ease, transform 0.3s ease;
+    z-index: 110;
+    overflow: hidden;
+    transform: translateX(-100%); /* escondido al inicio */
 }
 
-/* estado abierto (clase que JS añade al body) */
-body.sidebar-open #layout aside,
 #layout aside.visible {
-    transform: translateX(0);
+    transform: translateX(0); /* se desplaza a la pantalla */
 }
 
-/* Si el menú está abierto, el botón se empuja/sitúa encima con más visibilidad */
-body.sidebar-open #toggleBubble {
-    transform: translateY(-50%) translateX(calc(var(--sidebar-width) + 12px));
-    background: rgba(92,1,32,0.32);
+#layout aside.expanded {
+    width: 260px; /* ancho del sidebar al expandirse */
 }
 
-/* pequeña "silueta" siempre visible a la izquierda del contenido
-   para que se note mínimamente que hay un menú (opcional) */
-#layout aside::after {
-    content: "";
-    position: absolute;
-    right: -12px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 12px;
-    height: 60px;
-    border-radius: 6px;
-    background: linear-gradient(90deg, rgba(92,1,32,0.12), rgba(92,1,32,0.06));
-    pointer-events: none;
+#layout aside.ready {
+    /* opcional: puedes añadir un pequeño efecto de aparición */
+    transition: transform 0.3s ease, width 0.3s ease;
 }
+
+#layout aside .icon {
+    display: block;
+    width: 30px; /* tamaño de los íconos */
+    height: 30px;
+    margin: 10px auto;
+    transition: transform 0.3s ease;
+}
+
+#layout aside.expanded .icon {
+    transform: scale(1.2);
+}
+
+#sidebar .iconos img {
+    width: 24px;
+    height: 24px;
+}
+
 
 /* ajustes responsivos: en pantallas muy pequeñas quizás quieras otro comportamiento */
 @media (max-width: 640px) {

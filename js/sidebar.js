@@ -1,69 +1,55 @@
 document.addEventListener('DOMContentLoaded', () => {
     const body = document.body;
-    const aside = document.querySelector('#layout aside');
-    if (!aside) return;
+    const sidebar = document.querySelector('#layout aside');
+    const portada = document.querySelector('#portada');
 
-    const SIDEBAR_WIDTH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--sidebar-width')) || 260;
-    const OPEN_TRIGGER_X = 20;
-    const CLOSE_THRESHOLD_X = SIDEBAR_WIDTH + 60;
+    if (!sidebar || !portada) return;
+
+    const OPEN_TRIGGER_X = 20; // px desde el borde izquierdo para abrir automáticamente
     let pointerInside = false;
-    let closeTimeout = null;
+    let portadaVisible = true;
 
-    // Observer para ocultar la barra en la portada
+    // Observer para detectar si la portada está visible
     const observerPortada = new IntersectionObserver(([entry]) => {
-        if(entry.isIntersecting){
-            aside.classList.remove('ready');
+        portadaVisible = entry.isIntersecting;
+        if (portadaVisible) {
+            sidebar.classList.remove('ready'); // no mostrar mientras portada visible
         } else {
-            aside.classList.add('ready'); // lista para expandirse
+            sidebar.classList.add('ready');    // listo para mostrar
         }
     }, { threshold: 0.1 });
 
-    const portada = document.querySelector('#portada');
-    if(portada) observerPortada.observe(portada);
+    observerPortada.observe(portada);
 
+    // Funciones para abrir/cerrar sidebar
     function openSidebar() {
-        aside.classList.add('visible');
+        sidebar.classList.add('expanded', 'visible');
         body.classList.add('sidebar-open');
     }
 
     function closeSidebar() {
-        aside.classList.remove('visible');
+        sidebar.classList.remove('expanded', 'visible');
         body.classList.remove('sidebar-open');
     }
 
-    function scheduleClose() {
-        clearTimeout(closeTimeout);
-        closeTimeout = setTimeout(() => {
-            if(!pointerInside) closeSidebar();
-        }, 50);
-    }
+    // Mantener abierto mientras el mouse esté dentro
+    sidebar.addEventListener('mouseenter', () => {
+        pointerInside = true;
+        openSidebar();
+    });
 
-    // Mantener abierta mientras el mouse está sobre la barra
-    aside.addEventListener('mouseenter', () => { pointerInside = true; clearTimeout(closeTimeout); });
-    aside.addEventListener('mouseleave', () => { pointerInside = false; scheduleClose(); });
+    sidebar.addEventListener('mouseleave', () => {
+    pointerInside = false;
+    closeSidebar();
+    });
 
-    // Abrir/ cerrar según la posición del mouse
-    window.addEventListener('mousemove', (e) => {
-        const x = e.clientX;
-        if(x <= OPEN_TRIGGER_X && aside.classList.contains('ready')){
+  // Abrir si el mouse se acerca al borde izquierdo
+    window.addEventListener('mousemove', e => {
+        if (!portadaVisible) { // solo si ya no estamos en la portada
+            if (e.clientX <= OPEN_TRIGGER_X && !pointerInside) {
             openSidebar();
-        } else if(x > CLOSE_THRESHOLD_X && !pointerInside){
-            scheduleClose();
+            }
         }
-    }, { passive: true });
-
-    // Soporte táctil
-    let touchStartX = null;
-    window.addEventListener('touchstart', (e) => {
-        touchStartX = e.touches[0]?.clientX || null;
-    }, { passive: true });
-
-    window.addEventListener('touchmove', (e) => {
-        if (!touchStartX) return;
-        const x = e.touches[0].clientX;
-        if (touchStartX < 40 && x > 60) {
-            openSidebar();
-            touchStartX = null;
-        }
-    }, { passive: true });
+    });
 });
+
