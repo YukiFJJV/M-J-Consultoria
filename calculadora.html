@@ -7,9 +7,11 @@
     <script src="js/calculadora.js" defer></script>
 
     <title>Tarifa de impuesto sobre la renta</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <section>
-    <table border="1" cellspacing="0" cellpadding="5">
+    <table border="1" cellspacing="0" cellpadding="5" id="sar-isr">
         <thead>
             <tr>
                 <th colspan="10">Porcentaje</th>
@@ -21,7 +23,6 @@
                 <th colspan="2">15%</th>
                 <th colspan="2">20%</th>
                 <th colspan="2">25%</th>
-
             </tr>
             <tr>
                 <th>DESDE</th>
@@ -354,9 +355,9 @@
             <tfoot>
                 <tr>
                     <th>Totales</th>
-                    <td id="total_ingresos" aria-placeholder=" "></td>
-                    <td id="total_deducciones" aria-placeholder=" "></td>
-                    <td id="total_utilidades" aria-placeholder=" "></td>
+                    <td id="total_ingresos" aria-placeholder=" " class="total"></td>
+                    <td id="total_deducciones" aria-placeholder=" " class="total"></td>
+                    <td id="total_utilidades" aria-placeholder=" " class="total"></td>
                 </tr>
             </tfoot>
         </table>
@@ -378,21 +379,19 @@
         </thead>
         <tbody>
             <tr>
-                <th>
-                    <form>
-                        <label>
-                            <input type="text"
-                            id="fechaNacimiento"
-                            placeholder="dd/mm/AAAA"
-                            maxlength="10">
-                            <div id="errorFecha" class="error"></div>
-                        </label>
-                </form>
-                </th>
+                <td>
+                    <label>
+                        <input type="text"
+                        id="fechaNacimiento"
+                        placeholder="dd/mm/AAAA"
+                        maxlength="10">
+                        <div id="errorFecha" class="error"></div>
+                    </label>
+                </td>
 
-                <th id="edad"></th>
-                <th id="gastosMedicos"></th>
-                <th id="exoneraciones"></th>
+                <td id="edad"></td>
+                <td id="gastosMedicos"></td>
+                <td id="exoneraciones"></td>
             </tr>
         </tbody>
         <tfoot>
@@ -400,7 +399,49 @@
                 <th colspan="4">TOTAL</th>
             </tr>
             <tr>
-                <td id="baseImponible" aria-placeholder=" " colspan="4"></td>
+                <td id="ecuacionBaseImponible" aria-placeholder=" " colspan="4"></td>
+            </tr>
+            <tr>
+                <td id="baseImponible" colspan="4" class="total">
+                    <span id="valorBaseImponible"></span>
+                    <div id="baseImponibleISR" class="error"></div>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+    <br><br>
+    <table border="1" cellspacing="0" cellpadding="5">
+        <thead>
+            <tr>
+                <th colspan="4">ISR</th>
+            </tr>
+            <tr>
+                <th>Periodo</th>
+                <th>Ingreso</th>
+                <th>ISR</th>
+                <th>Impuesto total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <input type="number" id="periodo" maxlength="4" placeholder=" ">
+                </td>
+
+                <td id="ingreso"></td>
+                <td id="isr"></td>
+                <td id="totalImpuestos"></td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th colspan="4">TOTAL</th>
+            </tr>
+            <tr>
+                <td id="calculoImpuestos" colspan="4"></td>
+            </tr>
+            <tr>
+                <td id="total" colspan="4" class="total"></td>
             </tr>
         </tfoot>
     </table>
