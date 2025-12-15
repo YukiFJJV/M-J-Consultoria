@@ -30,6 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 actualizarTotales();
                 actualizarUtilidades();
+                setTimeout(Exoneracion, 10);
             }
         });
     });
@@ -105,19 +106,107 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             }
         });
+        if (edadCalc !== null) Exoneracion();
     }
 
     //Año de nacimiento usuario
     const fechaInput = document.getElementById('fechaNacimiento');
+    const errorFecha = document.getElementById('errorFecha');
+    const edad = document.getElementById('edad');
+    const actualYear = new Date().getFullYear();
 
-    fechaInput.addEventListener('keydown', (e)=>{
-        if(e.key==='Enter') e.preventDefault();
+    let edadCalc = null; // edad anual para ISR, accesible globalmente
 
-        let valor = fechaInput.value.replace(/\D/g, '') // Eliminamos no números
-        if(valor.length>2) valor = valor.slice(0,2) + '/' + valor.slice(2);
-        if(valor.length>5) valor = valor.slice(0,5) + '/' + valor.slice(5,8);
-        fechaInput.value = valor;
+    // Quitar foco con Enter
+    fechaInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            fechaInput.blur();
+        }
     });
+
+    // Formato + validación
+    fechaInput.addEventListener('input', () => {
+        let numeros = fechaInput.value.replace(/\D/g, '').slice(0, 8);
+        let resultado = '';
+
+        if (numeros.length >= 1) resultado = numeros.slice(0, 2);
+        if (numeros.length >= 3) resultado = numeros.slice(0, 2) + '/' + numeros.slice(2, 4);
+        if (numeros.length >= 5) resultado = numeros.slice(0, 2) + '/' + numeros.slice(2, 4) + '/' + numeros.slice(4, 8);
+
+        fechaInput.value = resultado;
+
+        // Limpiar edad y errores mientras no esté completa
+        errorFecha.textContent = '';
+        edad.textContent = '';
+        edadCalc = null;
+
+        if (numeros.length === 8) {
+            const dia = parseInt(numeros.slice(0, 2));
+            const mes = parseInt(numeros.slice(2, 4));
+            const yearInput = parseInt(numeros.slice(4, 8));
+
+            // Validaciones básicas
+            if (yearInput > actualYear || mes < 1 || mes > 12) {
+                errorFecha.textContent = 'Fecha no válida';
+                return;
+            }
+
+            const diasPorMes = [
+                31,
+                (yearInput % 4 === 0 && (yearInput % 100 !== 0 || yearInput % 400 === 0)) ? 29 : 28,
+                31, 30, 31, 30, 31, 31, 30, 31, 30, 31
+            ];
+            if (dia < 1 || dia > diasPorMes[mes - 1]) {
+                errorFecha.textContent = 'Fecha no válida';
+                return;
+            }
+
+            // Calcular edad anual para ISR
+            edadCalc = actualYear - yearInput;
+
+            if (edadCalc < 18) {
+                errorFecha.textContent = 'Fecha no válida (Menor de edad)';
+                edadCalc = null;
+                return;
+            }
+
+            // Mostrar edad anual
+            edad.textContent = `${edadCalc} años`;
+            const totUtilidades = parseFloat(document.getElementById('total_utilidades').textContent.replace(/,/g, '')) || 0;
+            if (totUtilidades) Exoneracion();
+        }
+    });
+    function Exoneracion() {
+        const celdaBaseImponible = document.getElementById('baseImponible');
+        const celdaExoneracion = document.getElementById('exoneraciones');
+        const celdaGastosMedicos = document.getElementById('gastosMedicos');
+        const utilidadesCelda = document.getElementById('total_utilidades');
+
+        // Convertir a número válido
+        let total_utilidades = parseFloat(utilidadesCelda.textContent.replace(/,/g, ''));
+        if (isNaN(total_utilidades)) total_utilidades = 0;
+
+        if (edadCalc === null) return; // si no hay edad, no hacer nada
+
+        let baseImponible = 0;
+        let exoneracion = 0;
+        let gastosMedicos = 0;
+
+        if (edadCalc < 60) {
+            gastosMedicos = 40000;
+            baseImponible = total_utilidades - gastosMedicos;
+        } else if (edadCalc >= 60 && edadCalc < 65) {
+            gastosMedicos = 70000;
+            baseImponible = total_utilidades - gastosMedicos;
+        } else {
+            exoneracion = 350000;
+            gastosMedicos = 110000;
+            baseImponible = total_utilidades - exoneracion - gastosMedicos;
+        }
+
+        celdaExoneracion.textContent = exoneracion.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        celdaGastosMedicos.textContent = gastosMedicos.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        celdaBaseImponible.textContent = baseImponible.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    }
 });
-
-

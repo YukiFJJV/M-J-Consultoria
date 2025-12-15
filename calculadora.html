@@ -364,10 +364,44 @@
 
     <br><br>
 
-    <form>
-        <label>
-            Ingrese su fecha de nacimiento:
-            <input type="text" id="fechaNacimiento" placeholder="dd/mm/AAAA">
-        </label>
-    </form>
+    <table border="1" cellspacing="0" cellpadding="5">
+        <thead>
+            <tr>
+                <th colspan="4">Base Imponible ISR</th>
+            </tr>
+            <tr>
+                <th>Fecha de nacimiento</th>
+                <th>Edad</th>
+                <th>Gastos médicos</th>
+                <th>Exoneraciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>
+                    <form>
+                        <label>
+                            <input type="text"
+                            id="fechaNacimiento"
+                            placeholder="dd/mm/AAAA"
+                            maxlength="10">
+                            <div id="errorFecha" class="error"></div>
+                        </label>
+                </form>
+                </th>
+
+                <th id="edad"></th>
+                <th id="gastosMedicos"></th>
+                <th id="exoneraciones"></th>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th colspan="4">TOTAL</th>
+            </tr>
+            <tr>
+                <td id="baseImponible" aria-placeholder=" " colspan="4"></td>
+            </tr>
+        </tfoot>
+    </table>
 </section>
