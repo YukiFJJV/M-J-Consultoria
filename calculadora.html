@@ -1,7 +1,10 @@
+<!DOCTYPE html>
+<html lang="es">
 <head>
     <link rel="icon" href="images/Icon.png" type="image/png">
+    <link rel="stylesheet" href="css/calcStyles.css">
 
-    <script src="calculadora.html" defer></script>
+    <script src="js/calculadora.js" defer></script>
 
     <title>Tarifa de impuesto sobre la renta</title>
 </head>
@@ -220,6 +223,8 @@
         </tbody>
     </table>
 
+    <br><br>
+
     <form id="calculator">
         <table border="1" cellspacing="0" cellpadding="5">
             <thead>
@@ -234,13 +239,135 @@
                 <tr>
                     <td>Actividades Mercantiles</td>
                     <td>
-                            <label>
-                                Año:
-                                <input type="number" id="year" value="2025">
-                            </label>
+                        <label>
+                            <input type="number" placeholder=" " class="ingresos">
+                        </label>
                     </td>
+                    <td>
+                        <label>
+                            <input type="number" placeholder=" " class="deducciones">
+                        </label>
+                    </td>
+                    <td aria-placeholder=" " class="utilidad"></td>
+                </tr>
+                <tr>
+                    <td>Servicios</td>
+                    <td>
+                        <label>
+                            <input type="number" placeholder=" " class="ingresos">
+                        </label>
+                    </td>
+                    <td>
+                        <label>
+                            <input type="number" placeholder=" " class="deducciones">
+                        </label>
+                    </td>
+                    <td aria-placeholder=" " class="utilidad"></td>
+                </tr>
+                <tr>
+                    <td>Actividades del Art. 20 (Agropecuaria, Agricultura,
+                        Minero, Turismo y Manufactureras)
+                    </td>
+                    <td>
+                        <label>
+                            <input type="number" placeholder=" " class="ingresos">
+                        </label>
+                    </td>
+                    <td>
+                        <label>
+                            <input type="number" placeholder=" " class="deducciones">
+                        </label>
+                    </td>
+                    <td aria-placeholder=" " class="utilidad"></td>
+                </tr>
+                <tr>
+                    <td>Sueldos y Salarios</td>
+                    <td>
+                        <label>
+                            <input type="number" placeholder=" " class="ingresos">
+                        </label>
+                    </td>
+                    <td>
+                        <label>
+                            <input type="number" placeholder=" " class="deducciones">
+                        </label>
+                    </td>
+                    <td aria-placeholder=" " class="utilidad"></td>
+                </tr>
+                <tr>
+                    <td>Honorarios Profesionales</td>
+                    <td>
+                        <label>
+                            <input type="number" placeholder=" " class="ingresos">
+                        </label>
+                    </td>
+                    <td>
+                        <label>
+                            <input type="number" placeholder=" " class="deducciones">
+                        </label>
+                    </td>
+                    <td aria-placeholder=" " class="utilidad"></td>
+                </tr>
+                <tr>
+                    <td>Alquileres</td>
+                    <td>
+                        <label>
+                            <input type="number" placeholder=" " class="ingresos">
+                        </label>
+                    </td>
+                    <td>
+                        <label>
+                            <input type="number" placeholder=" " class="deducciones">
+                        </label>
+                    </td>
+                    <td aria-placeholder=" " class="utilidad"></td>
+                </tr>
+                <tr>
+                    <td>Prestamista no bancario</td>
+                    <td>
+                        <label>
+                            <input type="number" placeholder=" " class="ingresos">
+                        </label>
+                    </td>
+                    <td>
+                        <label>
+                            <input type="number" placeholder=" " class="deducciones">
+                        </label>
+                    </td>
+                    <td aria-placeholder=" " class="utilidad"></td>
+                </tr>
+                <tr>
+                    <td>Otros</td>
+                    <td>
+                        <label>
+                            <input type="number" placeholder=" " class="ingresos">
+                        </label>
+                    </td>
+                    <td>
+                        <label>
+                            <input type="number" placeholder=" " class="deducciones">
+                        </label>
+                    </td>
+                    <td aria-placeholder=" " class="utilidad"></td>
                 </tr>
             </tbody>
+            <tfoot>
+                <tr>
+                    <th>Totales</th>
+                    <td id="total_ingresos" aria-placeholder=" "></td>
+                    <td id="total_deducciones" aria-placeholder=" "></td>
+                    <td id="total_utilidades" aria-placeholder=" "></td>
+                </tr>
+            </tfoot>
         </table>
+    </form>
+
+    <br><br>
+
+    <form>
+        <label>
+            Ingrese su fecha de nacimiento:
+            <input type="text" id="fechaNacimiento" placeholder="dd/mm/AAAA">
+        </label>
     </form>
 </section>

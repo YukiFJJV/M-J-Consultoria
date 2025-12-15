@@ -1,0 +1,20 @@
+/* Quitar flechas en todos los navegadores */
+input[type="number"] {
+    -webkit-appearance: none;  /* Chrome, Safari, Edge */
+    -moz-appearance: textfield; /* Firefox */
+    appearance: none;          /* estándar */
+    margin: 0;                 /* opcional, limpia espaciado */
+
+    border: none;
+    background: transparent;
+    font-family: inherit;
+    outline: none;
+}
+
+/* Chrome, Safari, Edge: quita flechas internas incluso al hacer foco */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
