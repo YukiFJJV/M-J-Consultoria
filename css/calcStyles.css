@@ -124,26 +124,25 @@ thead tr:nth-child(3) th {
 }
 
 @media (max-width: 768px) {
-
     table {
         width: 100%;
-        font-size: 0.85em;
+        font-size: 0.9rem;
     }
 
-    th,
+    th, td {
+        padding: 12px 8px; /* más altura */
+        line-height: 1.4;
+    }
+
+    th {
+        font-size: 0.85rem;
+        padding-top: 14px;
+        padding-bottom: 14px;
+    }
+
     td {
-        padding: 14px 10px;   /* 👈 esto hace la tabla “más alta” */
-        line-height: 1.6;     /* 👈 más aire vertical */
-        white-space: normal;  /* 👈 permite saltos de línea */
-        word-break: break-word;
-    }
-
-    td input {
-        padding: 10px 6px;    /* 👈 inputs más altos */
-        font-size: 1em;
-    }
-
-    thead th {
-        text-align: center;
+        font-size: 0.85rem;
+        padding-top: 16px;
+        padding-bottom: 16px;
     }
 }
