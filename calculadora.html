@@ -227,19 +227,20 @@
     <br><br>
     <div id="" class="info"></div>
     <form id="calculator">
-        <table border="1" cellspacing="0" cellpadding="5">
-            <thead>
-                <tr>
-                    <th colspan="4">Cálculo utilidad NETA</th>
-                </tr>
-                <tr>
-                    <th>Estados Financieros</th>
-                    <th>Ingresos</th>
-                    <th>Deducciones</th>
-                    <th>Utilidad o perdidas</th>
-                </tr>
-            </thead>
-            <tbody>
+        <div class="table-wrapper">
+            <table border="1" cellspacing="0" cellpadding="5">
+                <thead>
+                    <tr>
+                        <th colspan="4">Cálculo utilidad NETA</th>
+                    </tr>
+                    <tr>
+                        <th>Estados Financieros</th>
+                        <th>Ingresos</th>
+                        <th>Deducciones</th>
+                        <th>Utilidad o perdidas</th>
+                    </tr>
+                </thead>
+                <tbody>
                 <tr>
                     <td>Actividades Mercantiles</td>
                     <td>
@@ -355,15 +356,16 @@
                     <td aria-placeholder=" " class="utilidad"></td>
                 </tr>
             </tbody>
-            <tfoot>
-                <tr>
-                    <th>Totales</th>
-                    <td id="total_ingresos" aria-placeholder=" " class="total"></td>
-                    <td id="total_deducciones" aria-placeholder=" " class="total"></td>
-                    <td id="total_utilidades" aria-placeholder=" " class="total"></td>
-                </tr>
-            </tfoot>
-        </table>
+                <tfoot>
+                    <tr>
+                        <th>Totales</th>
+                        <td id="total_ingresos" aria-placeholder=" " class="total"></td>
+                        <td id="total_deducciones" aria-placeholder=" " class="total"></td>
+                        <td id="total_utilidades" aria-placeholder=" " class="total"></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
     </form>
 
     <br><br>
