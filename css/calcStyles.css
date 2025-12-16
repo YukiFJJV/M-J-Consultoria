@@ -123,25 +123,27 @@ thead tr:nth-child(3) th {
     background-color: #a7a896;
 }
 
-@media (max-width: 680px) {
-    section {
-        width: 100vh;
-    }
-    .table-wrapper {
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-    }
+@media (max-width: 768px) {
 
     table {
-        min-width: 100vw; /* ajusta según columnas */
-        font-size: 0.6rem;
-        height: 50%;
+        width: 100%;
+        font-size: 0.85em;
     }
 
     th,
     td {
-        padding: 4px;
+        padding: 14px 10px;   /* 👈 esto hace la tabla “más alta” */
+        line-height: 1.6;     /* 👈 más aire vertical */
+        white-space: normal;  /* 👈 permite saltos de línea */
         word-break: break-word;
-        white-space: normal;
+    }
+
+    td input {
+        padding: 10px 6px;    /* 👈 inputs más altos */
+        font-size: 1em;
+    }
+
+    thead th {
+        text-align: center;
     }
 }
