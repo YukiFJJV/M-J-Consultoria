@@ -133,9 +133,9 @@ thead tr:nth-child(3) th {
     }
 
     table {
-        min-width: 90vw; /* ajusta según columnas */
+        min-width: 100vw; /* ajusta según columnas */
         font-size: 0.6rem;
-        
+        height: 50%;
     }
 
     th,
