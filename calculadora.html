@@ -225,10 +225,13 @@
     </table>
 
     <br><br>
-
+    <div id="" class="info"></div>
     <form id="calculator">
         <table border="1" cellspacing="0" cellpadding="5">
             <thead>
+                <tr>
+                    <th colspan="4">Cálculo utilidad NETA</th>
+                </tr>
                 <tr>
                     <th>Estados Financieros</th>
                     <th>Ingresos</th>
@@ -403,7 +406,6 @@
             </tr>
             <tr>
                 <td id="baseImponible" colspan="4" class="total">
-                    <span id="valorBaseImponible"></span>
                     <div id="baseImponibleISR" class="error"></div>
                 </td>
             </tr>
@@ -425,7 +427,10 @@
         <tbody>
             <tr>
                 <td>
-                    <input type="number" id="periodo" maxlength="4" placeholder=" ">
+                    <label>
+                        <input type="number" id="periodo" maxlength="4" placeholder="Ingrese año">
+                        <div id="yearError" class="error"></div>
+                    </label>
                 </td>
 
                 <td id="ingreso"></td>

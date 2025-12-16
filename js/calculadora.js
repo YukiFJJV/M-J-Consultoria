@@ -27,7 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 } else {
                     input.blur(); // última fila y columna → desenfocar
                 }
-
                 actualizarTotales();
                 actualizarUtilidades();
                 setTimeout(Exoneracion, 10);
@@ -42,14 +41,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
         document.querySelectorAll('.ingresos').forEach(i => {
             let valor = parseFloat(i.value);
-            if (valor < 0) valor = 0;
-            if (valor > MAX_INGRESO) valor = MAX_INGRESO;
-            if(valor < 0) valor = 0;
-            i.value = valor.toFixed(2);
 
+            // Solo convertir a 0 si es negativo, pero no si está vacío
             if (!isNaN(valor)) {
+                if(valor < 0) valor = 0;
+                valor = Math.min(valor, MAX_INGRESO);
+                i.value = valor.toFixed(2);
+
                 totIngresos += valor;
                 hayIngresos = true;
+            } else {
+                // Si está vacío, dejarlo vacío
+                i.value = '';
             }
         });
 
@@ -63,12 +66,17 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('.deducciones').forEach(i => {
             let valor = parseFloat(i.value);
 
-            if(valor < 0) valor = 0;
-            i.value = valor.toFixed(2);
-
+            // Solo convertir a 0 si es negativo, pero no si está vacío
             if (!isNaN(valor)) {
+                if(valor < 0) valor = 0;
+                valor = Math.min(valor, MAX_INGRESO);
+                i.value = valor.toFixed(2);
+
                 totDeducciones += valor;
                 hayDeducciones = true;
+            } else {
+                // Si está vacío, dejarlo vacío
+                i.value = '';
             }
         });
 
@@ -235,12 +243,34 @@ document.addEventListener('DOMContentLoaded', () => {
     const totalImpuestos = document.getElementById('totalImpuestos');
     const calculoImpuesto = document.getElementById('calculoImpuestos');
     const totalTD=document.getElementById('total');
+    const yearErr=document.getElementById('yearError');
+
+    periodoInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            periodoInput.blur();
+
+            // Solo para validar temporalmente
+            const yearValue = parseInt(periodoInput.value, 10);
+
+            if (isNaN(yearValue) || yearValue > actualYear) {
+                yearErr.textContent = 'Año no válido';
+                yearErr.style.display = 'block';
+            } else {
+                yearErr.style.display = 'none';
+            }
+        }
+    });
+
+    periodoInput.addEventListener('input', () => {
+        periodoInput.value = periodoInput.value.replace(/\D/g, '').slice(0, 4);
+    });
 
     // Función para obtener los tramos de la tabla según el año
     function obtenerTramoImpuesto() {
-        const yearInput = parseInt(periodoInput.value, 10);
         const tabla = document.getElementById('sar-isr');
         const filas = Array.from(tabla.querySelectorAll('tbody tr'));
+        const yearInput = parseInt(periodoInput.value, 10);
         let filaEncontrada = null;
 
         for (let fila of filas) {
@@ -276,7 +306,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const year = parseInt(periodoInput.value, 10);
 
         // Si no hay año válido, limpiar la tabla y salir
-        if (isNaN(year) || periodoInput.value.trim() === '') {
+        if (isNaN(year) || periodoInput.value.trim() === ''|| year>actualYear) {
             ingresoTd.textContent = '';
             isrTd.textContent = '';
             totalImpuestos.textContent = '';

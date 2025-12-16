@@ -1,49 +1,95 @@
-/* Quitar flechas en todos los navegadores */
+/* Quitar flechas en inputs number */
 input[type="number"] {
-    -webkit-appearance: none;  /* Chrome, Safari, Edge */
-    -moz-appearance: textfield; /* Firefox */
-    appearance: none;          /* estándar */
-    margin: 0;                 /* opcional, limpia espaciado */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
 
     border: none;
     background: transparent;
     font-family: inherit;
     outline: none;
+    margin: 0;
 }
 
-/* Chrome, Safari, Edge: quita flechas internas incluso al hacer foco */
+/* Chrome, Safari, Edge */
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
 
-.error {
-    font-size: 12px;
-    min-height: 1em; /* reserva espacio */
-    display: block;
-    margin-top: 5px; /* o el espacio que quieras */
-    color: red; /* para visualizar el error */
-}
-
-
+/* Input texto */
 input[type="text"] {
-    -webkit-appearance: none;  /* Chrome, Safari, Edge */
-    -moz-appearance: textfield; /* Firefox */
-    appearance: none;          /* estándar */
-    margin: 0;                 /* opcional, limpia espaciado */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
 
     border: none;
     background: transparent;
     font-family: inherit;
     outline: none;
 
-    display: table-cell;
-    padding: 8px;
     width: 100%;
+    padding: 8px;
     text-align: left;
+}
+
+.error {
+    font-size: 12px;
+    min-height: 1em;
+    margin-top: 5px;
+    color: red;
+    display: block;
+}
+
+table {
+    width: 90vw;
+    margin: 0 auto;
+    table-layout: fixed;
+    font-family: 'Inter', sans-serif;
+    border-collapse: collapse;
+}
+
+thead {
+    border-bottom: 4px solid #4A4B40;
+}
+
+tbody {
+    border: 1px solid #4A4B40;
+}
+
+td, th {
+    padding: 8px;
+    font-size: clamp(0.8em, 0.9em, 1em);
     vertical-align: middle;
     white-space: normal;
+}
+
+td {
+    text-align: left;
+}
+
+th {
+    text-align: center;
+    background-color: rgb(85, 21, 43);
+    color: white;
+}
+
+td input {
+    width: 100%;
+    box-sizing: border-box;
+    font-size: inherit;
+    padding: 4px;
+    border: none;
+    outline: none;
+}
+
+thead tr:nth-child(2) th {
+    background-color: rgb(125, 28, 61);
+}
+
+thead tr:nth-child(3) th {
+    background-color: rgb(175, 78, 110);
 }
 
 #ecuacionBaseImponible,
@@ -51,59 +97,10 @@ input[type="text"] {
     white-space: pre-line;
     line-height: 1.4;
 }
-table {
-    display: table;
-    width: 90%;
-    table-layout: fixed;
-    align-items: center;
-    margin: 0 auto;
 
-    font-family: 'Inter', sans-serif;
+#isr {
+    white-space: pre-wrap;
 }
-
-thead {
-    display: table-header-group;
-}
-
-tbody {
-    display: table-row-group;
-}
-
-tfoot {
-    display: table-footer-group;
-    
-}
-
-tr {
-    display: table-row;
-}
-
-td{
-    display: table-cell;
-    padding: 8px;
-    width: 100%;
-    text-align: left;
-    vertical-align: middle;
-    white-space: normal;
-}
-
-th{
-    display: table-cell;
-    padding: 8px;
-    width: 100%;
-    text-align: center;
-    vertical-align: middle;
-    white-space: normal;
-    background-color: rgb(85, 21, 43);
-    color: white
-}
-
-thead tr:nth-child(2) th {
-    color: white;
-    background-color:  rgb(125, 28, 61);;
-}
-
-#sar-isr thead th:nth-child()
 
 #baseImponibleISR {
     display: none;
@@ -112,6 +109,37 @@ thead tr:nth-child(2) th {
     margin-top: 6px;
 }
 
-#isr{
-    white-space: pre-wrap;
+#sar-isr {
+    width: 90vw;
+    margin: 0 auto;
+}
+
+#sar-isr thead,
+#sar-isr tbody {
+    font-size: clamp(0.6em, 0.7em, 0.8em);
+}
+
+.total {
+    background-color: #a7a896;
+}
+
+@media (max-width: 680px) {
+
+    .table-wrapper {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    table {
+        min-width: 90vw; /* ajusta según columnas */
+        font-size: 0.6rem;
+        
+    }
+
+    th,
+    td {
+        padding: 4px;
+        word-break: break-word;
+        white-space: normal;
+    }
 }
