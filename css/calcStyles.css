@@ -124,7 +124,9 @@ thead tr:nth-child(3) th {
 }
 
 @media (max-width: 680px) {
-
+    section {
+        width: 100vh;
+    }
     .table-wrapper {
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
