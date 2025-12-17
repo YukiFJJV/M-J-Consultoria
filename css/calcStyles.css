@@ -1,146 +1,128 @@
-/* Quitar flechas en inputs number */
-input[type="number"] {
+/* Reset básico */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-x: hidden; /* No scroll lateral de página */
+    font-family: 'Inter', sans-serif;
+}
+
+/* Inputs */
+input[type="number"], input[type="text"] {
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: textfield;
-
     border: none;
     background: transparent;
-    font-family: inherit;
     outline: none;
-    margin: 0;
-}
-
-/* Chrome, Safari, Edge */
-input[type="number"]::-webkit-outer-spin-button,
-input[type="number"]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-
-/* Input texto */
-input[type="text"] {
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: textfield;
-
-    border: none;
-    background: transparent;
-    font-family: inherit;
-    outline: none;
-
     width: 100%;
-    padding: 8px;
-    text-align: left;
+    padding: 4px;
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 .error {
     font-size: 12px;
-    min-height: 1em;
-    margin-top: 5px;
     color: red;
+    margin-top: 5px;
     display: block;
 }
 
-table {
-    width: 90vw;
-    margin: 0 auto;
-    table-layout: fixed;
-    font-family: 'Inter', sans-serif;
-    border-collapse: collapse;
+/* Tablas */
+.table-wrapper {
+    width: 100%;
+    height: auto;
+    overflow-x: auto; 
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    box-sizing: border-box;
+    padding: 0 5px;
+    margin-bottom: 20px;
+    padding-top: 20px;
 }
 
-thead {
-    border-bottom: 4px solid #4A4B40;
+.table-wrapper table {
+    min-width: max-content;
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;         /* Evita espacios entre celdas */
+    border-radius: 12px;       /* Redondea esquinas exteriores */
+    overflow: hidden;          /* Recorta bordes de celdas dentro */
 }
 
-tbody {
-    border: 1px solid #4A4B40;
-}
-
-td, th {
-    padding: 8px;
-    font-size: clamp(0.8em, 0.9em, 1em);
-    vertical-align: middle;
-    white-space: normal;
-}
-
-td {
-    text-align: left;
+table, th, td {
+    border: 1px solid #333;
 }
 
 th {
     text-align: center;
+    background-color: rgb(85,21,43);
+    color: #fff;
+    padding: 8px;
+}
+
+thead tr:first-child th {
     background-color: rgb(85, 21, 43);
     color: white;
 }
 
-td input {
-    width: 100%;
-    box-sizing: border-box;
-    font-size: inherit;
-    padding: 4px;
-    border: none;
-    outline: none;
-}
-
 thead tr:nth-child(2) th {
     background-color: rgb(125, 28, 61);
+    color: white;
 }
 
 thead tr:nth-child(3) th {
     background-color: rgb(175, 78, 110);
+    color: white;
 }
 
-#ecuacionBaseImponible,
-#baseImponible {
-    white-space: pre-line;
-    line-height: 1.4;
+thead th {
+    border: 1px solid rgb(223, 215, 215);  /* Bordes del thead en blanco */
 }
 
-#isr {
-    white-space: pre-wrap;
+td {
+    text-align: left;
+    padding: 8px;
 }
 
-#baseImponibleISR {
-    display: none;
-    color: green;
-    font-weight: bold;
-    margin-top: 6px;
-}
-
-#sar-isr {
-    width: 90vw;
-    margin: 0 auto;
-}
-
-#sar-isr thead,
-#sar-isr tbody {
-    font-size: clamp(0.6em, 0.7em, 0.8em);
+tr:nth-child(even){
+    background-color: oklab(88.102% 0.01055 0.0032);
 }
 
 .total {
     background-color: #a7a896;
 }
 
+thead tr:first-child th:first-child {
+    border-top-left-radius: 12px;
+}
+
+thead tr:first-child th:last-child {
+    border-top-right-radius: 12px;
+}
+
+/* Esquinas inferiores del tfoot */
+tfoot tr:last-child td:first-child {
+    border-bottom-left-radius: 12px;
+}
+
+tfoot tr:last-child td:last-child {
+    border-bottom-right-radius: 12px;
+}
+
+/* Estilos responsive móviles */
 @media (max-width: 768px) {
-
     .table-wrapper {
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
+        height: 100dvh; /* tabla ocupa pantalla completa */
     }
 
-    table {
-        transform: none; /* quítalo */
-    }
-
-    th, td {
-        font-size: 16px;   /* o incluso 17px */
-        padding: 16px 12px;
-        vertical-align: middle;
-    }
-
-    thead th {
-        line-height: 1.4;
+    td, th {
+        font-size: clamp(0.7em, 0.8em, 0.9em);
     }
 }
